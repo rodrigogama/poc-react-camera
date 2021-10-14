@@ -53,7 +53,7 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
           videoConstraints={videoConstraints}
           ref={ref}
           onUserMediaError={onUserMediaError}
-          mirrored
+          mirrored={showSelfieFrame}
           className={clsx('z-10 absolute top-0 left-0', {
             'w-full': isLandscape,
           })}
