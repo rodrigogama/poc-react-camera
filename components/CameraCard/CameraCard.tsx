@@ -9,7 +9,7 @@ export const CameraCard: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div
       className={clsx(
-        'relative bg-white p-4 rounded w-full h-full shadow-md md:max-w-md md:max-h-[896px]',
+        'relative bg-white p-4 rounded w-full h-full shadow-md',
         className,
       )}
       {...props}
