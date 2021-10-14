@@ -15,7 +15,10 @@ export const CameraSelfieFrame: React.FC = () => {
   const circleRadius = width / 2.8;
   const viewBox = `0 0 ${width} ${height}`;
   return (
-    <div ref={containerRef} className="bg-transparent w-full h-full z-10">
+    <div
+      ref={containerRef}
+      className="bg-transparent w-full h-full z-10 relative"
+    >
       <svg height={height} viewBox={viewBox}>
         <defs>
           <mask id="mask">
