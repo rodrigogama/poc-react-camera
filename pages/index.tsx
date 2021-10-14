@@ -35,34 +35,6 @@ const Home: NextPage = () => {
   //   }
   // };
 
-  // React.useEffect(() => {
-  //   var orientation =
-  //     (screen.orientation || {}).type ||
-  //     screen.mozOrientation ||
-  //     screen.msOrientation;
-
-  //   setState({ orientation });
-
-  //   if ('permissions' in navigator) {
-  //     console.log('permissions!');
-  //     navigator.permissions
-  //       .query({ name: 'camera' as PermissionName })
-  //       .then(function (notificationPerm) {
-  //         console.log(notificationPerm);
-  //         notificationPerm.onchange = function () {
-  //           console.log(
-  //             'User decided to change his seettings. New permission: ' +
-  //               notificationPerm.state,
-  //           );
-
-  //           if (notificationPerm.state === 'prompt') {
-  //             setKey(prev => prev + 1);
-  //           }
-  //         };
-  //       });
-  //   }
-  // }, []);
-
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const selectedType = event.target.value as CameraFrameType;
     const captureOption = CaptureOptions.find(
