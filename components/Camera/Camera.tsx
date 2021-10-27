@@ -69,7 +69,7 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
           {showCedulaFrame && <CameraCedulaFrame />}
         </div>
         <button
-          className="bg-red-400 w-full z-50"
+          className="relative bg-red-400 w-full z-50"
           onClick={() => (containerRef?.current as any).requestFullscreen()}
         >
           Fullscreen
