@@ -36,7 +36,12 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
       docEl.mozRequestFullScreen ||
       docEl.webkitRequestFullScreen ||
       docEl.msRequestFullscreen;
-    requestFullScreen.call(docEl);
+
+    if (requestFullScreen) {
+      requestFullScreen.call(docEl);
+    } else {
+      alert('no support');
+    }
   };
 
   const showSelfieFrame =
