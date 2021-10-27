@@ -70,7 +70,7 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
         </div>
         <button
           className="bg-red-400 w-full z-50"
-          onClick={() => containerRef?.current?.requestFullscreen()}
+          onClick={() => (containerRef?.current as any).requestFullscreen()}
         >
           Fullscreen
         </button>
