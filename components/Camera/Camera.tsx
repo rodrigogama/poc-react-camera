@@ -29,6 +29,16 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
     }
   };
 
+  const handleFullscreen = () => {
+    const docEl = containerRef?.current as any;
+    const requestFullScreen =
+      docEl.requestFullscreen ||
+      docEl.mozRequestFullScreen ||
+      docEl.webkitRequestFullScreen ||
+      docEl.msRequestFullscreen;
+    requestFullScreen.call(docEl);
+  };
+
   const showSelfieFrame =
     cameraFrameType === CameraFrameType.SELFIE && showCameraFrame;
   const showCedulaFrame =
@@ -70,7 +80,7 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
         </div>
         <button
           className="relative bg-red-400 w-full z-50"
-          onClick={() => (containerRef?.current as any).requestFullscreen()}
+          onClick={handleFullscreen}
         >
           Fullscreen
         </button>
