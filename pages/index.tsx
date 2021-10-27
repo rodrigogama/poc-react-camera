@@ -64,7 +64,7 @@ const Home: NextPage = () => {
           ))}
         </Select>
 
-        <CameraCard>
+        <CameraCard className="max-w-[448px]">
           <h2 className="text-lg font-semibold mb-8">
             {captureOption.description}
           </h2>
@@ -89,23 +89,6 @@ const Home: NextPage = () => {
           ))} */}
         </CameraCard>
       </section>
-      {/* <Webcam
-        key={key}
-        onUserMediaError={onUserMediaError}
-        ref={webcamRef}
-        mirrored
-      />
-      <button onClick={capture}>Capture</button>
-
-      {Object.entries(state).map(([key, value]) => (
-        <p key={key}>
-          <span>
-            key: {key} / value: {value}
-          </span>
-        </p>
-      ))}
-
-     */}
     </main>
   );
 };

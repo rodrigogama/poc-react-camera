@@ -11,19 +11,21 @@ import {
 import { CameraProps } from './types';
 
 export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
+  const containerRef = React.useRef(null);
   const { cameraProps, cameraFrameType, showCameraFrame } = props;
   const isLandscape = useIsLandscape();
   const permission = useCameraPermission();
 
   console.log({ permission });
 
-  const onUserMediaError = (error: string | DOMException) => {
+  const onUserMediaError = (error: string | DOMException | Error) => {
     console.log('onUserMediaError');
 
     if (error instanceof DOMException) {
       console.log(error.name);
-    } else {
-      console.log(error);
+    } else if (error instanceof Error) {
+      console.log(error.message);
+      // setMediaError(error.message);
     }
   };
 
@@ -46,6 +48,7 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
       <div
         className="relative overflow-hidden w-full bg-black after:block after:pb-[75%] mt-6"
         style={{ border: '1px solid' }}
+        ref={containerRef}
       >
         <Webcam
           {...cameraProps}
@@ -61,14 +64,16 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
         />
 
         <div className="absolute w-full h-full top-0 left-0">
-          {showSelfieFrame && (
-            <CameraSelfieFrame key={isLandscape ? 'landscape' : 'portrait'} />
-          )}
+          {showSelfieFrame && <CameraSelfieFrame />}
 
-          {showCedulaFrame && (
-            <CameraCedulaFrame key={isLandscape ? 'landscape' : 'portrait'} />
-          )}
+          {showCedulaFrame && <CameraCedulaFrame />}
         </div>
+        <button
+          className="bg-red-400 w-full z-50"
+          onClick={() => containerRef?.current?.requestFullscreen()}
+        >
+          Fullscreen
+        </button>
       </div>
     </>
   );
