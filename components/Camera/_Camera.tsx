@@ -61,9 +61,6 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
     docEl?.webkitRequestFullScreen ||
     docEl?.msRequestFullscreen;
 
-  // @ts-ignore
-  const handleUserMedia = (...args) => console.log(args);
-
   return (
     <>
       <div
@@ -76,7 +73,6 @@ export const Camera = React.forwardRef<Webcam, CameraProps>((props, ref) => {
           key={permission}
           videoConstraints={videoConstraints}
           ref={ref}
-          onUserMedia={handleUserMedia}
           screenshotQuality={1}
           onUserMediaError={onUserMediaError}
           mirrored={showSelfieFrame}
